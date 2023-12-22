@@ -1,0 +1,43 @@
+[
+  {
+    "title": "Readmi 9 Pro",
+    "image": "https://i.ibb.co/cJPdknn/readmi1.png",
+    "variation": {
+      "colors": ["red", "yellow", "green", "blue"],
+      "sizes": ["5", "5.5", "6"]
+    }
+  },
+  {
+    "title": "iPhone 13 Pro Max",
+    "image": "https://i.ibb.co/LkRJBH0/iphone13pro2.jpg",
+    "variation": {
+      "colors": ["red", "pink", "purple", "yellow"],
+      "sizes": ["5", "5.5", "6"]
+    }
+  },
+  {
+    "title": "iPhone 14 Pro",
+    "image": "https://i.ibb.co/XzJXjX7/iphone13pro3.jpg",
+    "variation": {
+      "colors": ["teal", "sky", "cyan", "indigo"],
+      "sizes": ["5", "5.5", "6"]
+    }
+  },
+
+  {
+    "title": "Samsung A11",
+    "image": "https://i.ibb.co/KqCZ0y4/galaxys21-1.jpg",
+    "variation": {
+      "colors": ["red", "yellow", "green", "blue"],
+      "sizes": ["5", "5.5", "6"]
+    }
+  },
+  {
+    "title": "Samsung Galaxy_21",
+    "image": "https://i.ibb.co/5L0pGjT/galaxys21-2.jpg",
+    "variation": {
+      "colors": ["red", "yellow", "green", "blue"],
+      "sizes": ["5", "5.5", "6"]
+    }
+  }
+]
