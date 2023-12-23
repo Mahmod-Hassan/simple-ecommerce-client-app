@@ -1,41 +1,25 @@
-import { useEffect, useState } from "react";
-import { FaStar } from "react-icons/fa";
-import { FaRegStar } from "react-icons/fa6";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
-
+import ColorSelect from "../../components/ColorSelect";
+import Loader from "../../components/Loader";
+import { getProductById } from "../../hooks/useFetchProduct";
+import generateRatings from "../../utils/generateRatings";
 const ProductDetails = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
-  const [loading, setLoading] = useState(false);
-  const ratings = [];
-
-  useEffect(() => {
-    const getSingleProductById = async () => {
-      setLoading(true);
-      const res = await fetch(`http://localhost:4000/products/${id}`);
-      const data = await res.json();
-      setLoading(false);
-      setProduct(data);
-    };
-    getSingleProductById();
-  }, []);
-
+  const [selectedColor, setSelectedColor] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+  const { product, loading } = getProductById(id);
   // handle loading state
   if (loading) {
-    return "Loading...";
+    return <Loader />;
   }
 
   const { title, image, price, rating, variation } = product;
-  for (let i = 1; i <= 5; i++) {
-    if (i <= rating) {
-      ratings.push(<FaStar className="text-yellow-500" key={i} />);
-    } else {
-      ratings.push(<FaRegStar className="text-yellow-500" />);
-    }
-  }
+
+  const ratings = generateRatings(rating);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-y-5 md:gap-10 content-center h-screen">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-y-5 md:gap-10 content-center h-auto md:h-screen">
       <div className="border max-h-[400px]">
         <img className="h-full w-full" src={image} alt="" />
       </div>
@@ -62,8 +46,12 @@ const ProductDetails = () => {
             </button>
           ))}
         </div>
-        <p>Selected Color - </p>
-        <div className="flex items-center gap-3">
+        <ColorSelect
+          variation={variation}
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
+        {/* <div className="flex items-center gap-3">
           <p>Colors :</p>
           <div className="flex gap-5 items-center">
             {variation?.colors.map((color) => (
@@ -72,10 +60,11 @@ const ProductDetails = () => {
                 className="w-5 h-5 rounded-full ring"
                 type="button"
                 key={color}
+                onClick={() => setSelectedColor(color)}
               ></button>
             ))}
           </div>
-        </div>
+        </div> */}
         <button className="bg-blue-500 px-4 py-1 text-white">
           Add to cart
         </button>
