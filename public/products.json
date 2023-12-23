@@ -3,7 +3,7 @@
     "title": "Readmi 9 Pro",
     "image": "https://i.ibb.co/cJPdknn/readmi1.png",
     "variation": {
-      "colors": ["red", "yellow", "green", "blue"],
+      "colors": ["blue", "white", "black"],
       "sizes": ["5", "5.5", "6"]
     }
   },
@@ -11,7 +11,7 @@
     "title": "iPhone 13 Pro Max",
     "image": "https://i.ibb.co/LkRJBH0/iphone13pro2.jpg",
     "variation": {
-      "colors": ["red", "pink", "purple", "yellow"],
+      "colors": ["green", "pink", "yellow", "red"],
       "sizes": ["5", "5.5", "6"]
     }
   },
@@ -19,24 +19,24 @@
     "title": "iPhone 14 Pro",
     "image": "https://i.ibb.co/XzJXjX7/iphone13pro3.jpg",
     "variation": {
-      "colors": ["teal", "sky", "cyan", "indigo"],
+      "colors": ["blue", "purple", "yellow", "red"],
       "sizes": ["5", "5.5", "6"]
     }
   },
 
   {
-    "title": "Samsung A11",
+    "title": "Samsung Galaxy A13 ",
     "image": "https://i.ibb.co/KqCZ0y4/galaxys21-1.jpg",
     "variation": {
-      "colors": ["red", "yellow", "green", "blue"],
+      "colors": ["blue", "white", "black"],
       "sizes": ["5", "5.5", "6"]
     }
   },
   {
-    "title": "Samsung Galaxy_21",
+    "title": "samsung Galaxy s24",
     "image": "https://i.ibb.co/5L0pGjT/galaxys21-2.jpg",
     "variation": {
-      "colors": ["red", "yellow", "green", "blue"],
+      "colors": ["grey", "yellow", "black", "lightblue"],
       "sizes": ["5", "5.5", "6"]
     }
   }
