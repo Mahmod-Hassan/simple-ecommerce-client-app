@@ -46,25 +46,12 @@ const ProductDetails = () => {
             </button>
           ))}
         </div>
+        {/* ColorSelect is a component where color selecting functionality are implemented */}
         <ColorSelect
           variation={variation}
           selectedColor={selectedColor}
           setSelectedColor={setSelectedColor}
         />
-        {/* <div className="flex items-center gap-3">
-          <p>Colors :</p>
-          <div className="flex gap-5 items-center">
-            {variation?.colors.map((color) => (
-              <button
-                style={{ backgroundColor: color }}
-                className="w-5 h-5 rounded-full ring"
-                type="button"
-                key={color}
-                onClick={() => setSelectedColor(color)}
-              ></button>
-            ))}
-          </div>
-        </div> */}
         <button className="bg-blue-500 px-4 py-1 text-white">
           Add to cart
         </button>
