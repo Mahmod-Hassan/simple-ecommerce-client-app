@@ -10,7 +10,9 @@ export const getAllProduct = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`http://localhost:4000/products`);
+        const res = await fetch(
+          `https://simple-ecommerce-server-nu.vercel.app/products`
+        );
         const data = await res.json();
         setLoading(false);
         setProducts(data);
@@ -36,7 +38,9 @@ export const getProductById = (id) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`http://localhost:4000/products/${id}`);
+        const res = await fetch(
+          `https://simple-ecommerce-server-nu.vercel.app/products/${id}`
+        );
         const data = await res.json();
         setLoading(false);
         setProduct(data);
