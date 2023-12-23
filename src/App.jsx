@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Products from "./pages/Products/Products";
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <div className="bg-gray-100">
       <Routes>
         <Route path="/" element={<Products />} />
+        <Route path="/:id" element={<ProductDetails />} />
       </Routes>
     </div>
   );

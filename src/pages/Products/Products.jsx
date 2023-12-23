@@ -22,7 +22,7 @@ const Products = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 container mx-auto p-5">
       {products.map((product) => (
-        <Product key={product?.id} product={product}></Product>
+        <Product key={product?._id} product={product}></Product>
       ))}
     </div>
   );
