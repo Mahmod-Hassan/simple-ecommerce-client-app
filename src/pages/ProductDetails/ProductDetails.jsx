@@ -36,9 +36,12 @@ const ProductDetails = () => {
         </p>
         <div className="flex items-center">
           <p>Size :</p>
-          {variation?.sizes.map((size) => (
+          {variation?.sizes?.map((size) => (
             <button
-              className="border rounded border-gray-800 mx-2 px-2 hover:bg-blue-500 hover:text-white"
+              className={`border rounded border-gray-800 mx-2 px-2 hover:bg-blue-500 hover:text-white ${
+                selectedSize === size ? "bg-blue-500 text-white" : ""
+              } ? `}
+              onClick={() => setSelectedSize(size)}
               type="button"
               key={size}
             >

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 const Navbar = () => {
+  const { logout, user } = useContext(AuthContext);
+  console.log(user);
   return (
     <nav className="flex justify-between items-center bg-white rounded mb-5 p-4">
       <h1 className="text-2xl font-bold">
@@ -17,7 +20,20 @@ const Navbar = () => {
       <ul>
         <li className="space-x-4">
           <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
+          {!user?.email ? (
+            <Link to="/login">
+              <button className="px-6 py-2 text-sm text-white font-medium  transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 ">
+                Login
+              </button>
+            </Link>
+          ) : (
+            <button
+              onClick={logout}
+              className="px-6 py-2 text-sm text-white font-medium  transition-colors duration-300 transform bg-red-500 rounded-lg hover:bg-gray-400 "
+            >
+              Logout
+            </button>
+          )}
         </li>
       </ul>
     </nav>
