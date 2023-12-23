@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
@@ -21,11 +22,13 @@ const LoginForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data._id) {
+        console.log(data);
+        if (data) {
           localStorage.setItem("user", JSON.stringify(data));
           setError("");
           setUser(data);
           navigate(from, { replace: true });
+          toast.success("Logged in successfull");
         } else {
           setError(data.message);
         }
