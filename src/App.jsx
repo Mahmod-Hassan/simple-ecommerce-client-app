@@ -5,10 +5,12 @@ import Products from "./pages/Products/Products";
 function App() {
   return (
     <div className="bg-gray-100">
-      <Routes>
-        <Route path="/" element={<Products />} />
-        <Route path="/:id" element={<ProductDetails />} />
-      </Routes>
+      <div className="container mx-auto px-5">
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="/:id" element={<ProductDetails />} />
+        </Routes>
+      </div>
     </div>
   );
 }

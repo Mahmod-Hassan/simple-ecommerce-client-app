@@ -2,6 +2,8 @@
   {
     "title": "Readmi 9 Pro",
     "image": "https://i.ibb.co/cJPdknn/readmi1.png",
+    "price": 150,
+    "rating": 4,
     "variation": {
       "colors": ["blue", "white", "black"],
       "sizes": ["5", "5.5", "6"]
@@ -10,6 +12,8 @@
   {
     "title": "iPhone 13 Pro Max",
     "image": "https://i.ibb.co/LkRJBH0/iphone13pro2.jpg",
+    "price": 500,
+    "rating": 3,
     "variation": {
       "colors": ["green", "pink", "yellow", "red"],
       "sizes": ["5", "5.5", "6"]
@@ -18,6 +22,8 @@
   {
     "title": "iPhone 14 Pro",
     "image": "https://i.ibb.co/XzJXjX7/iphone13pro3.jpg",
+    "price": 650,
+    "rating": 5,
     "variation": {
       "colors": ["blue", "purple", "yellow", "red"],
       "sizes": ["5", "5.5", "6"]
@@ -27,6 +33,8 @@
   {
     "title": "Samsung Galaxy A13 ",
     "image": "https://i.ibb.co/KqCZ0y4/galaxys21-1.jpg",
+    "price": 250,
+    "rating": 4,
     "variation": {
       "colors": ["blue", "white", "black"],
       "sizes": ["5", "5.5", "6"]
@@ -35,6 +43,8 @@
   {
     "title": "samsung Galaxy s24",
     "image": "https://i.ibb.co/5L0pGjT/galaxys21-2.jpg",
+    "price": 350,
+    "rating": 5,
     "variation": {
       "colors": ["grey", "yellow", "black", "lightblue"],
       "sizes": ["5", "5.5", "6"]
