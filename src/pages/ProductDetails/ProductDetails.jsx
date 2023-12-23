@@ -19,7 +19,7 @@ const ProductDetails = () => {
   const ratings = generateRatings(rating);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-y-5 md:gap-10 content-center h-auto md:h-screen">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-y-5 md:gap-10 content-center h-auto md:h-screen -mt-20">
       <div className="border max-h-[400px]">
         <img className="h-full w-full" src={image} alt="" />
       </div>
