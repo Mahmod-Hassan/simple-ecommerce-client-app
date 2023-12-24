@@ -6,7 +6,9 @@ const useGetRequest = (url) => {
   const sendRequest = async (email) => {
     try {
       // setLoading(true);
-      const res = await fetch(`http://localhost:4000/get-cart-items/${email}`);
+      const res = await fetch(
+        `https://simple-ecommerce-server-olive.vercel.app/get-cart-items/${email}`
+      );
       const data = await res.json();
       if (data.success) {
         setCartItems(data.data);

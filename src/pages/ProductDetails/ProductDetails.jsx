@@ -43,18 +43,21 @@ const ProductDetails = () => {
 
   const addToCart = async (productId) => {
     try {
-      const res = await fetch("http://localhost:4000/add-to-cart", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          email: user?.email,
-          productId,
-          color: selectedColor,
-          size: selectedSize,
-        }),
-      });
+      const res = await fetch(
+        "https://simple-ecommerce-server-olive.vercel.app/add-to-cart",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({
+            email: user?.email,
+            productId,
+            color: selectedColor,
+            size: selectedSize,
+          }),
+        }
+      );
       const data = await res.json();
       if (data.success) {
         toast.success(data.message);
