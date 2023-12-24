@@ -20,7 +20,7 @@ const Register = () => {
     event.preventDefault();
     try {
       const res = await fetch(
-        "https://simple-ecommerce-server-nu.vercel.app/signup",
+        "https://simple-ecommerce-server-olive.vercel.app/signup",
         {
           method: "POST",
           headers: {

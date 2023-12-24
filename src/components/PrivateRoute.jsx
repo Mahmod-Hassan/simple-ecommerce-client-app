@@ -6,7 +6,6 @@ import Loader from "./Loader";
 const PrivateRoute = ({ children }) => {
   const location = useLocation();
   const { user, loading } = useContext(AuthContext);
-  console.log(loading);
   if (loading) {
     return <Loader />;
   } else if (user?.email && !loading) {

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ColorSelect = ({ variation, selectedColor, setSelectedColor }) => {
+const ColorSelect = ({ colors, selectedColor, setSelectedColor }) => {
   return (
     <>
       <div className="flex gap-5">
@@ -17,7 +17,7 @@ const ColorSelect = ({ variation, selectedColor, setSelectedColor }) => {
       <div className="flex items-center gap-3">
         <p>Colors :</p>
         <div className="flex gap-5 items-center">
-          {variation?.colors.map((color) => (
+          {colors?.map((color) => (
             <button
               style={{ backgroundColor: color }}
               className="w-5 h-5 rounded-full ring"

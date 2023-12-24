@@ -11,29 +11,34 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const handleLogin = (event) => {
+
+  // handleLogin is a function
+  const handleLogin = async (event) => {
     event.preventDefault();
-    fetch("https://simple-ecommerce-server-nu.vercel.app/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data) {
-          localStorage.setItem("user", JSON.stringify(data));
-          setError("");
-          setUser(data);
-          navigate(from, { replace: true });
-          toast.success("Logged in successfull");
-        } else {
-          setError(data.message);
+    try {
+      const res = await fetch(
+        "https://simple-ecommerce-server-olive.vercel.app/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
         }
-      })
-      .catch((error) => console.log(error, "from handleLogin function"));
+      );
+      const data = await res.json();
+      if (data) {
+        localStorage.setItem("user", JSON.stringify(data));
+        setError("");
+        setUser(data);
+        navigate(from, { replace: true });
+        toast.success("Logged in successfull");
+      } else {
+        setError(data.message);
+      }
+    } catch (error) {
+      console.log(error, "from handleLogin function");
+    }
   };
   return (
     <div className="flex justify-center items-center h-screen">

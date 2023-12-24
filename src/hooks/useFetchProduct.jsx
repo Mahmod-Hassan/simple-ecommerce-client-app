@@ -11,7 +11,7 @@ export const getAllProduct = () => {
       try {
         setLoading(true);
         const res = await fetch(
-          `https://simple-ecommerce-server-nu.vercel.app/products`
+          `https://simple-ecommerce-server-olive.vercel.app/products`
         );
         const data = await res.json();
         setLoading(false);
@@ -39,7 +39,7 @@ export const getProductById = (id) => {
       try {
         setLoading(true);
         const res = await fetch(
-          `https://simple-ecommerce-server-nu.vercel.app/products/${id}`
+          `https://simple-ecommerce-server-olive.vercel.app/products/${id}`
         );
         const data = await res.json();
         setLoading(false);
