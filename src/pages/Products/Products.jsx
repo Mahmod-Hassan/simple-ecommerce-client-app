@@ -1,7 +1,7 @@
 import React from "react";
 import Loader from "../../components/Loader";
 import Product from "../../components/Product";
-import { getAllProduct } from "../../hooks/useFetchProduct";
+import { getAllProduct } from "../../hooks/useHttpRequest";
 
 const Products = () => {
   const { products, loading } = getAllProduct();

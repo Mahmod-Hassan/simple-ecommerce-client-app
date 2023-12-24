@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import ColorSelect from "../../components/ColorSelect";
 import Loader from "../../components/Loader";
-import { getProductById } from "../../hooks/useFetchProduct";
+import { AuthContext } from "../../context/AuthProvider";
+import { getProductById } from "../../hooks/useHttpRequest";
 import generateRatings from "../../utils/generateRatings";
 const ProductDetails = () => {
+  const { user, updateCart, setUpdateCart } = useContext(AuthContext);
   // useParams is a react-router-dom hooks
   const { id } = useParams();
+
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
 
@@ -37,6 +41,31 @@ const ProductDetails = () => {
   //and show rating-icon based on rating number
   const ratings = generateRatings(rating);
 
+  const addToCart = async (productId) => {
+    try {
+      const res = await fetch("http://localhost:4000/add-to-cart", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email: user?.email,
+          productId,
+          color: selectedColor,
+          size: selectedSize,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success(data.message);
+        setUpdateCart(!updateCart);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-y-5 md:gap-10 content-center h-auto md:h-screen md:-mt-20">
       <div className="border max-h-[400px]">
@@ -74,7 +103,10 @@ const ProductDetails = () => {
           selectedColor={selectedColor}
           setSelectedColor={setSelectedColor}
         />
-        <button className="bg-blue-500 px-4 py-1 text-white">
+        <button
+          onClick={() => addToCart(id)}
+          className="bg-blue-500 px-4 py-1 text-white"
+        >
           Add to cart
         </button>
       </div>

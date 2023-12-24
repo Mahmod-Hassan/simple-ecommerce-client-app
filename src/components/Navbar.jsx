@@ -1,13 +1,26 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaCartArrowDown } from "react-icons/fa";
 import { FaBars } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
+import useGetRequest from "../hooks/useGetRequest";
+import Loader from "./Loader";
 
 const Navbar = () => {
-  const { logout, user } = useContext(AuthContext);
+  const { logout, user, updateCart } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+  // useGetRequest is my custom hook
+  const { cartItems, loading, sendRequest } = useGetRequest();
+
+  useEffect(() => {
+    sendRequest(user?.email);
+  }, [user?.email, updateCart]);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <nav className="flex justify-between items-center bg-white rounded mb-5 p-4 relative">
       <h1 className="text-2xl font-bold">
@@ -22,11 +35,12 @@ const Navbar = () => {
       </div>
       <ul>
         <li
+          onClick={() => setOpen(false)}
           className={`${
             open
               ? "flex flex-col md:flex-row top-16 w-full border-t md:border-none left-0 absolute md:static bg-white p-5 md:p-0"
               : "hidden md:flex"
-          } items-center gap-3`}
+          } items-center gap-5`}
         >
           <Link
             to="/"
@@ -34,9 +48,16 @@ const Navbar = () => {
           >
             Home
           </Link>
-
-          <button className="text-xl">
-            <FaCartArrowDown />
+          <span>{user?.email}</span>
+          <button className="relative">
+            <FaCartArrowDown className="text-gray-500 text-xl" />
+            <span className="absolute -top-4 -right-3 bg-blue-500 px-1 rounded-full text-white">
+              {cartItems.length
+                ? cartItems.reduce((initialValue, currentItem) => {
+                    return initialValue + currentItem.quantity;
+                  }, 0)
+                : 0}
+            </span>
           </button>
 
           {!user?.email ? (

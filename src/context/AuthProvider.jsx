@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [updateCart, setUpdateCart] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -18,6 +19,7 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("user");
     setUser({});
     toast.success("logged out successfull");
+    setUpdateCart(!updateCart);
   };
 
   const authInfo = {
@@ -25,6 +27,8 @@ const AuthProvider = ({ children }) => {
     logout,
     setUser,
     loading,
+    updateCart,
+    setUpdateCart,
   };
 
   return (

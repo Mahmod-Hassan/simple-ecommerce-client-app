@@ -40,7 +40,7 @@ const Register = () => {
         setError(data.message);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   return (

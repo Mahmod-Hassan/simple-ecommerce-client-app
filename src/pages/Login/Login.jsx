@@ -37,7 +37,7 @@ const LoginForm = () => {
         setError(data.message);
       }
     } catch (error) {
-      console.log(error, "from handleLogin function");
+      // console.log(error, "from handleLogin function");
     }
   };
   return (
