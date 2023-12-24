@@ -10,9 +10,10 @@ import Loader from "./Loader";
 const Navbar = () => {
   const { logout, user, updateCart } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
+
   // useGetRequest is my custom hook
   const { cartItems, loading, sendRequest } = useGetRequest();
-
+  console.log(updateCart);
   useEffect(() => {
     sendRequest(user?.email);
   }, [user?.email, updateCart]);
@@ -52,7 +53,7 @@ const Navbar = () => {
           <button className="relative">
             <FaCartArrowDown className="text-gray-500 text-xl" />
             <span className="absolute -top-4 -right-3 bg-blue-500 px-1 rounded-full text-white">
-              {cartItems.length
+              {cartItems.length && user?.email
                 ? cartItems.reduce((initialValue, currentItem) => {
                     return initialValue + currentItem.quantity;
                   }, 0)
