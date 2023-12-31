@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Register = () => {
+  // useNavigate is a react-router-hook
   const navigate = useNavigate("/");
   const { setUser } = useContext(AuthContext);
   const [error, setError] = useState("");
@@ -30,6 +31,7 @@ const Register = () => {
         }
       );
       const data = await res.json();
+
       if (data?._id) {
         localStorage.setItem("user", JSON.stringify(data));
         setError("");
@@ -37,7 +39,7 @@ const Register = () => {
         navigate("/");
         toast.success("Congratulation!! sing up successfull");
       } else {
-        setError(data.message);
+        setError(data.error);
       }
     } catch (error) {
       // console.log(error);

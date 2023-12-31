@@ -27,7 +27,8 @@ const LoginForm = () => {
         }
       );
       const data = await res.json();
-      if (data) {
+
+      if (data?.email) {
         localStorage.setItem("user", JSON.stringify(data));
         setError("");
         setUser(data);
